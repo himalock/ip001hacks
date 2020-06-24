@@ -37,11 +37,19 @@ mount --bind /media/hack/hosts.new /etc/hosts
 # setup and install dropbear ssh server - no password login
 /media/hack/dropbearmulti dropbear -r /media/hack/dropbear_ecdsa_host_key -B
 
+# telnetd killed
+(sleep 20 && killall telnetd) &
+
 # start ftp server
 (/home/busybox/tcpsvd -E 0.0.0.0 21 /home/busybox/ftpd -w / ) &
 
-# sync the time
-(sleep 20 && /home/busybox/ntpd -q -p 0.uk.pool.ntp.org ) &
+# wifi connect delay start-ap.sh
+(sleep 30 && sh /media/hack/connect_wifi.sh ) &
+
+# timezone JST-9 time sync
+NTP_SERVER=ntp.jst.mfeed.ad.jp
+(sleep 40 && mount --bind /media/hack/TZ /home/etc/TZ && \
+             /home/busybox/ntpd -S 60 -p $NTP_SERVER ) &
 
 # silence the voices - uncomment if needed
 #if [ ! -f /home/VOICE-orig.tgz ]; then
@@ -52,3 +60,4 @@ mount --bind /media/hack/hosts.new /etc/hosts
 
 #
 ############
+
