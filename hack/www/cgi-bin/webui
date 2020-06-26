@@ -64,7 +64,11 @@ Uptime - $uptime
 <br />
 Hack Type - $hacktype
 <br />
-<a href="https://github.com/ant-thomas/zsgx1hacks" target="_blank">ZS-GX1 Hacks - Github</a>
+Based <a href="https://github.com/ant-thomas/zsgx1hacks" target="_blank">ZS-GX1 Hacks - Github</a>
+
+<br />
+<br />
+<button onclick="window.location.href='webui?command=reboot'" id="reboot">reboot</button>
 
 </body></html>
 EOT
@@ -94,15 +98,18 @@ fi
  if [ "$command" = "ptzr" ]; then
   $ptzfolder/ptz-ctrl r > /dev/null
  fi
- if [ "$command" = "ptzlu" ]; then                                                           
-  $ptzfolder/ptz-ctrl lu > /dev/null                                                         
- fi 
- if [ "$command" = "ptzld" ]; then                                                           
-  $ptzfolder/ptz-ctrl ld > /dev/null                                                         
- fi 
- if [ "$command" = "ptzru" ]; then                                                           
-  $ptzfolder/ptz-ctrl ru > /dev/null                                                         
- fi 
- if [ "$command" = "ptzrd" ]; then                                                           
-  $ptzfolder/ptz-ctrl rd > /dev/null                                                         
- fi 
+ if [ "$command" = "ptzlu" ]; then
+  $ptzfolder/ptz-ctrl lu > /dev/null
+ fi
+ if [ "$command" = "ptzld" ]; then
+  $ptzfolder/ptz-ctrl ld > /dev/null
+ fi
+ if [ "$command" = "ptzru" ]; then
+  $ptzfolder/ptz-ctrl ru > /dev/null
+ fi
+ if [ "$command" = "ptzrd" ]; then
+  $ptzfolder/ptz-ctrl rd > /dev/null
+ fi
+ if [ "$command" = "reboot" ]; then
+  reboot > /dev/null
+ fi
