@@ -68,7 +68,7 @@ Based <a href="https://github.com/ant-thomas/zsgx1hacks" target="_blank">ZS-GX1 
 
 <br />
 <br />
-<button onclick="window.location.href='webui?command=reboot'" id="reboot">reboot</button>
+<button onclick="window.location.href='webui?command=reboot; window.location.href='webui''" id="reboot">reboot</button>
 
 </body></html>
 EOT
