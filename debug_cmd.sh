@@ -48,7 +48,7 @@ mount --bind /media/hack/hosts.new /etc/hosts
 
 # timezone JST-9 time sync
 NTP_SERVER=ntp.jst.mfeed.ad.jp
-(sleep 40 && mount --bind /media/hack/TZ /home/etc/TZ && \
+(sleep 40 && echo "JST-9" > /home/etc/TZ && \
              /home/busybox/ntpd -S 60 -p $NTP_SERVER ) &
 
 # silence the voices - uncomment if needed
